@@ -6,6 +6,7 @@
 #include "valkyrie/asset/mesh_asset.h"
 #include "valkyrie/vulkan/memory_buffer.h"
 #include "valkyrie/graphics_api_support/attribute.h"
+#include "valkyrie/scene/bounding_box.h"
 
 namespace ValkyrieFactory {
 	class MeshFactory;
@@ -17,11 +18,11 @@ namespace Valkyrie {
 
 	class LavyAsset : 
 		public Asset,
-		public Valkyrie::MeshSupport {
+		public MeshSupport {
 	public:
 		LavyAsset() = delete;
 		LavyAsset(const JSON& src);
-		virtual ~LavyAsset() {};
+		virtual ~LavyAsset();
 
 		virtual uint32_t getDrawVertexCount();
 		virtual uint32_t getVerticeBufferOffset();
@@ -40,6 +41,7 @@ namespace Valkyrie {
 		uint32_t m_indices_byte_length = 0;
 		uint32_t m_indices_byte_offset = 0;
 		uint32_t m_indices_count = 0;
+		RoundingBox m_bounding_box;
 	};
 
 	using LavyAssetPtr = std::shared_ptr<LavyAsset>;

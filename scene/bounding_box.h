@@ -10,7 +10,6 @@ namespace Valkyrie {
 		virtual ~RoundingBox();
 
 		bool overlap(const RoundingBox& rhs) const;
-
 		glm::vec3 min;
 		glm::vec3 max;
 	};

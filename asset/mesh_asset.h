@@ -3,6 +3,7 @@
 #include <glm/glm.hpp>
 #include "valkyrie/asset/asset.h"
 #include "valkyrie/vulkan/memory_buffer.h"
+#include "valkyrie/scene/bounding_box.h"
 
 namespace ValkyrieFactory {
 	class MeshFactory;
@@ -36,16 +37,13 @@ namespace Valkyrie {
 		virtual uint32_t getIndiceBufferOffset();
 		virtual uint32_t getVerticeBufferLength();
 		virtual uint32_t getIndiceBufferLength();
-		glm::vec3 getMaxXYZ();
-		glm::vec3 getMinXYZ();
 		VkBuffer getVulkanBuffer() { return m_vulkan_buffer.handle; }
+		RoundingBox boundingBox;
 
 	private:
 		friend class ValkyrieFactory::MeshFactory;
 		Vulkan::MemoryBuffer m_vulkan_buffer;
 		MeshSupportPtr m_mesh_support_ptr;
-		glm::vec3* mp_min_xyz = nullptr;
-		glm::vec3* mp_max_xyz = nullptr;
 	};
 
 	using MeshPtr = std::shared_ptr<Mesh>;
