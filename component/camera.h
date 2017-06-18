@@ -8,6 +8,8 @@ namespace ValkyrieComponent {
 	class Camera : 
 		public Component {
 	public:
+		GET_COMPONENT_NAME(Camera)
+
 		class Frustum {
 			friend class Camera;
 		public:
@@ -30,6 +32,7 @@ namespace ValkyrieComponent {
 
 		virtual void start();
 		virtual void update();
+
 
 		/// \brief Set FOV.
 		/// Unacceptable arugment will be ignored.
