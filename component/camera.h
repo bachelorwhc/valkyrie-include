@@ -1,12 +1,30 @@
 #ifndef _VALKYRIECOMPONENT_CAMERA_H
 #define _VALKYRIECOMPONENT_CAMERA_H
 #include <glm/glm.hpp>
+#include <array>
 #include "valkyrie/component/component.h"
 
 namespace ValkyrieComponent {
 	class Camera : 
 		public Component {
 	public:
+		class Frustum {
+			friend class Camera;
+		public:
+			Frustum();
+			~Frustum();
+
+			bool checkPosition(const glm::vec3& position);
+
+		private:
+			static const int m_size_of_planes = 6;
+
+			void update(const glm::mat4&& view_projection);
+
+			enum SIDE { LEFT = 0, RIGHT = 1, TOP = 2, BOTTOM = 3, BACK = 4, FRONT = 5 };
+			std::array<glm::vec4, m_size_of_planes> m_planes;
+		};
+
 		Camera();
 		virtual ~Camera();
 
@@ -32,6 +50,8 @@ namespace ValkyrieComponent {
 
 		const glm::mat4& getPerspective() const;
 		const glm::mat4& getView() const;
+
+		Frustum frustum;
 
 	private:
 		enum DirtyFlag {
