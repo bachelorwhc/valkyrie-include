@@ -38,7 +38,7 @@ namespace Valkyrie {
 		virtual uint32_t getVerticeBufferLength();
 		virtual uint32_t getIndiceBufferLength();
 		VkBuffer getVulkanBuffer() { return m_vulkan_buffer.handle; }
-		RoundingBox boundingBox;
+		Scene::RoundingBox boundingBox;
 
 	private:
 		friend class ValkyrieFactory::MeshFactory;

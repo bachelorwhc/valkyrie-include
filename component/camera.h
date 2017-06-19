@@ -28,6 +28,7 @@ namespace ValkyrieComponent {
 		};
 
 		Camera();
+		Camera(float fov, float ratio, float near = 0.1f, float far = 1000.0f);
 		virtual ~Camera();
 
 		virtual void start();
@@ -45,11 +46,11 @@ namespace ValkyrieComponent {
 		/// \brief Set near.
 		/// Unacceptable arugment will be ignored.
 		/// @param near should be greater then 0.
-		void setNear(float near);
+		void setNear(float _near);
 		/// \brief Set far.
 		/// Unacceptable arugment will be ignored.
 		/// @param far should be greater then near.
-		void setFar(float far);
+		void setFar(float _far);
 
 		const glm::mat4& getPerspective() const;
 		const glm::mat4& getView() const;
@@ -82,7 +83,7 @@ namespace ValkyrieComponent {
 		glm::mat4 m_view;
 	};
 
-	using CameraPtr = std::shared_ptr<Camera>;
+	using CameraComponentPtr = std::shared_ptr<Camera>;
 }
 
 #endif

@@ -19,6 +19,7 @@
 #include "valkyrie/graphics/pipeline.h"
 #include "valkyrie/vulkan/thread.h"
 #include "valkyrie/utility/task_manager.h"
+#include "valkyrie/scene/camera.h"
 
 class ValkyrieEngine {
 public:

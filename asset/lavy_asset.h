@@ -41,7 +41,7 @@ namespace Valkyrie {
 		uint32_t m_indices_byte_length = 0;
 		uint32_t m_indices_byte_offset = 0;
 		uint32_t m_indices_count = 0;
-		RoundingBox m_bounding_box;
+		Scene::RoundingBox m_bounding_box;
 	};
 
 	using LavyAssetPtr = std::shared_ptr<LavyAsset>;

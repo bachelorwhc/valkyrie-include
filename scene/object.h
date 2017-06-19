@@ -22,6 +22,7 @@ namespace Valkyrie {
 
 			virtual void start();
 			virtual void update();
+			virtual ValkyrieComponent::ComponentPtr getComponentPtr(const std::string& component_name);
 			
 			Transform transform;
 		private:

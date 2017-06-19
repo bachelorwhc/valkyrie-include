@@ -1,8 +1,18 @@
 #ifndef _VALKYRIE_OBJECT_FACTORY_H
 #define _VALKYRIE_OBJECT_FACTORY_H
-#include "valkyrie/scene/object.h"
+#include <memory>
+#include "valkyrie/component/component_attacher.h"
+
+namespace Valkyrie {
+	class ObjectManager;
+	namespace Scene {
+		class Object;
+		class Camera;
+	}
+}
 
 namespace ValkyrieFactory {
+
 	class ObjectFactory {
 	public:
 		static int initialize();
@@ -13,10 +23,18 @@ namespace ValkyrieFactory {
 		virtual ~ObjectFactory();
 		
 		Valkyrie::Scene::ObjectPtr createObject();
+		Valkyrie::Scene::CameraPtr createCamera(float fov, float ratio, float _near, float _far);
 
 	private:
 		static ObjectFactory* gp_object_factory;
 		ObjectFactory();
+
+		template<typename T>
+		std::shared_ptr<T> processObjectCreationRoutine();
+		void acquireID(std::shared_ptr<Valkyrie::Scene::Object>& ptr, Valkyrie::ObjectManager& manager);
+		void registerObject(std::shared_ptr<Valkyrie::Scene::Object>& ptr, Valkyrie::ObjectManager& manager);
+
+		Valkyrie::ComponentAttacher m_component_attacher;
 	};
 }
 
