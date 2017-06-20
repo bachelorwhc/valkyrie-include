@@ -13,7 +13,7 @@ namespace Valkyrie {
 			virtual void update();
 			virtual ValkyrieComponent::ComponentPtr getComponentPtr(const std::string& component_name);
 			
-			ValkyrieComponent::Camera& feature() { return *m_camera_component_ptr; }
+			ValkyrieComponent::Camera& getProperties() { return *m_camera_component_ptr; }
 
 		private:
 			friend class Valkyrie::ComponentAttacher;

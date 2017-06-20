@@ -13,7 +13,7 @@ namespace ValkyrieFactory {
 
 		virtual ~MeshFactory();
 
-		Valkyrie::MeshPtr createMesh(const Valkyrie::LavyAssetPtr lavy_ptr);
+		Valkyrie::MeshPtr createMesh(const Valkyrie::LavyMeshPtr lavy_ptr);
 
 	private:
 		static MeshFactory* gp_mesh_factory;

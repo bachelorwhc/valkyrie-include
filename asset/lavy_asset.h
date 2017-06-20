@@ -16,24 +16,26 @@ namespace Valkyrie {
 	class MemoryChunk;
 	using MemoryChunkPtr = std::shared_ptr<MemoryChunk>;
 
-	class LavyAsset : 
+	class LavyMesh : 
 		public Asset,
 		public MeshSupport {
 	public:
-		LavyAsset() = delete;
-		LavyAsset(const JSON& src);
-		virtual ~LavyAsset();
+		LavyMesh() = delete;
+		LavyMesh(const std::string& name, const JSON& src);
+		virtual ~LavyMesh();
 
 		virtual uint32_t getDrawVertexCount();
 		virtual uint32_t getVerticeBufferOffset();
 		virtual uint32_t getIndiceBufferOffset();
 		virtual uint32_t getVerticeBufferLength();
 		virtual uint32_t getIndiceBufferLength();
+		std::string getName() const { return m_name; }
 
 	private:
 		friend class LavyLoader;
 		friend class ValkyrieFactory::MeshFactory;
 
+		std::string m_name;
 		JSON m_json;
 		MemoryChunkPtr m_buffer_ptr;
 		uint32_t m_vertices_byte_length = 0;
@@ -44,7 +46,7 @@ namespace Valkyrie {
 		Scene::RoundingBox m_bounding_box;
 	};
 
-	using LavyAssetPtr = std::shared_ptr<LavyAsset>;
+	using LavyMeshPtr = std::shared_ptr<LavyMesh>;
 }
 
 #endif
