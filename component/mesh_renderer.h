@@ -4,9 +4,12 @@
 #include "valkyrie/vulkan/command_buffer.h"
 #include "valkyrie/vulkan/memory_buffer.h"
 #include "valkyrie/asset/mesh_asset.h"
+#include "valkyrie/graphics/recorder.h"
 
 namespace ValkyrieComponent {
-	class MeshRenderer : public Component {
+	class MeshRenderer : 
+		public Component,
+		public Valkyrie::Recorder {
 	public:
 		MeshRenderer() = delete;
 		MeshRenderer(const Valkyrie::MeshPtr& mesh_ptr);
@@ -14,7 +17,7 @@ namespace ValkyrieComponent {
 
 		virtual void start() {};
 		virtual void update() {};
-		void recordDrawCommand(Vulkan::CommandBuffer& command);
+		virtual void recordDrawCommand(Vulkan::CommandBuffer& command);
 
 	private:
 		Valkyrie::MeshPtr m_mesh_ptr;

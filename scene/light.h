@@ -2,10 +2,12 @@
 #define _VALKYRIE_SCENE_LIGHT_H
 #include <glm/glm.hpp>
 #include "valkyrie/scene/object.h"
+#include "valkyrie/graphics/recorder.h"
 
 namespace Valkyrie {
 	namespace Scene {
-		class Light : public Object {
+		class Light : 
+			public Object {
 		public:
 			enum Type {
 				POSITION,

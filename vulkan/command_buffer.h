@@ -19,6 +19,9 @@ namespace Vulkan {
 		VkResult begin();
 		VkResult end();
 		VkResult submit(const Queue& queue);
+		bool recorded() const;
+	private:
+		bool m_recorded = false;
 	};
 
 	struct InheritanceCommandBuffer : public CommandBuffer {
