@@ -3,7 +3,7 @@
 #include <string>
 #include <new>
 #include <memory>
-#include <SDL2/SDL_syswm.h>
+#include <SDL_syswm.h>
 struct SDL_Window;
 
 namespace Valkyrie {

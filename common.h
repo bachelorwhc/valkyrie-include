@@ -27,7 +27,8 @@
 #include <unordered_set>
 #include <exception>
 #include <json.hpp>
-#include <SDL2/SDL.h>
+#include <SDL.h>
+
 #define NEW_NT new(std::nothrow)
 #define MAKE_SHARED(t) std::make_shared<t>
 
