@@ -14,6 +14,7 @@ namespace Valkyrie {
 		class Pipeline {
 		public:
 			enum ShaderStage {
+                UNKNOWN,
 				VERTEX,
 				FRAGMENT
 			};
