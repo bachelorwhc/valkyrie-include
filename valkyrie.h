@@ -17,6 +17,7 @@
 #include "valkyrie/factory/object.h"
 #include "valkyrie/factory/mesh.h"
 #include "valkyrie/graphics/pipeline.h"
+#include "valkyrie/graphics/pipeline_initializer.h"
 #include "valkyrie/vulkan/thread.h"
 #include "valkyrie/utility/task_manager.h"
 #include "valkyrie/scene/camera.h"

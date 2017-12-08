@@ -18,7 +18,6 @@ namespace ValkyrieComponent {
 		virtual void start() {};
 		virtual void update() {};
 		virtual void recordDrawCommand(Vulkan::CommandBuffer& command);
-
 	private:
 		Valkyrie::MeshPtr m_mesh_ptr;
 	};
