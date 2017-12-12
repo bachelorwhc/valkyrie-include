@@ -25,8 +25,8 @@ namespace Vulkan {
 
 		VkBuffer handle = VK_NULL_HANDLE;
 		VkDeviceMemory memory = VK_NULL_HANDLE;
-	private:
 
+	private:
 		uint32_t m_size = 0;
 		VkDescriptorBufferInfo* mp_information = nullptr;
 		bool m_writing_state = false;

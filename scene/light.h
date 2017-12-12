@@ -18,14 +18,22 @@ namespace Valkyrie {
 			Light(const Type type);
 			virtual ~Light();
 
-			void setColor(const glm::vec3& color);
+			virtual void setColor(const glm::vec3& color);
 			glm::vec3 getColor();
 			Type getType();
 
+            bool isNeedUpdateBuffer() const { return _isNeedUpdateBuffer(); }
+            void resetDirty() { _resetDirty(); }
+
 		private:
+            virtual bool _isNeedUpdateBuffer() const = 0;
+            virtual void _resetDirty() = 0;
+
 			Type m_type;
 			glm::vec3 m_color;
 		};
+
+        using LightPtr = std::shared_ptr<Light>;
 	}
 }
 

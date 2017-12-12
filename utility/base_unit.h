@@ -45,7 +45,7 @@ namespace Valkyrie {
 		bool dirty() const;
 		bool dirtyAt(const unsigned int flag) const;
 	private:
-		unsigned int m_dirty = 0;
+		unsigned int m_dirty = 0xFFFFFFFF;
 	};
 }
 

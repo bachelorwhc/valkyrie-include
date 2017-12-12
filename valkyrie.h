@@ -21,6 +21,10 @@
 #include "valkyrie/vulkan/thread.h"
 #include "valkyrie/utility/task_manager.h"
 #include "valkyrie/scene/camera.h"
+#include "valkyrie/scene/light_position.h"
+#include "valkyrie/scene/light_directional.h"
+#include "valkyrie/scene/light_spot.h"
+#include "valkyrie/scene/light_shader_writer.h"
 
 class ValkyrieEngine {
 public:

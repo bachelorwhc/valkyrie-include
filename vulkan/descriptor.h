@@ -26,6 +26,7 @@ namespace Vulkan {
 		VkResult initializeSets();
 		std::vector<VkDescriptorSetLayout> getSetLayoutHandles();
 		void updateDescriptorSet(SetUpdable& write, const uint32_t set_index, const uint32_t binding);
+        void updateDescriptorSet(VkWriteDescriptorSet* writes, const uint32_t writes_count, const uint32_t set_index, const uint32_t binding);
 
 		VkDescriptorPool handle = VK_NULL_HANDLE;
 		std::vector<DescriptorSetLayout> setLayouts;

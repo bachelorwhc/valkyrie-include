@@ -2,6 +2,7 @@
 #define _VALKYRIE_OBJECT_FACTORY_H
 #include <memory>
 #include "valkyrie/component/component_attacher.h"
+#include "valkyrie/scene/light.h"
 
 namespace Valkyrie {
 	class ObjectManager;
@@ -12,7 +13,6 @@ namespace Valkyrie {
 }
 
 namespace ValkyrieFactory {
-
 	class ObjectFactory {
 	public:
 		static int initialize();
@@ -24,6 +24,7 @@ namespace ValkyrieFactory {
 		
 		Valkyrie::Scene::ObjectPtr createObject();
 		Valkyrie::Scene::CameraPtr createCamera(float fov, float ratio, float _near, float _far);
+        Valkyrie::Scene::LightPtr createLight(Valkyrie::Scene::Light::Type type);
 
 	private:
 		static ObjectFactory* gp_object_factory;
