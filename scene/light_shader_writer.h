@@ -13,7 +13,6 @@ namespace Valkyrie {
         void removeLight(unsigned int ID);
         void updateLights();
         VkWriteDescriptorSet getPositionLightWrite();
-        uint32_t getPositionLightWritesCount() const;
         Vulkan::MemoryBuffer getPositionLightCountBuffer() const;
 
     private:
