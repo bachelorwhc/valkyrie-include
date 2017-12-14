@@ -16,6 +16,10 @@ namespace Valkyrie {
 
         void initializeShaders(const std::string& filepath, Graphics::Pipeline& pipeline);
 
+        void initializePool(Graphics::Pipeline& pipeline);
+
+        void initializeBindings(Graphics::Pipeline& pipeline);
+
         void setShaderVariableName(const VertexShaderVariableType variable, const std::string& name);
 
         std::string getShaderVariableName(const VertexShaderVariableType variable) const;
