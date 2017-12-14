@@ -14,9 +14,7 @@ namespace Valkyrie {
         PipelineShadersInitializer() {};
         ~PipelineShadersInitializer() {};
 
-        void loadSPVBinaryCode(const std::string& filepath, const std::string& sri_filepath, VkShaderStageFlagBits stage_flag = VK_SHADER_STAGE_FLAG_BITS_MAX_ENUM);
-
-        void initializePipelineShaders(Graphics::Pipeline& pipeline) const;
+        void initializeShaders(const std::string& filepath, Graphics::Pipeline& pipeline);
 
         void setShaderVariableName(const VertexShaderVariableType variable, const std::string& name);
 
@@ -28,8 +26,8 @@ namespace Valkyrie {
 
     private:
         std::map<Graphics::Pipeline::ShaderStage, Vulkan::ShaderPointer> m_shader_ptrs;
-        std::map<Vulkan::ShaderPointer, JSON> m_raw_jsons;
-        std::map<Graphics::Pipeline::ShaderStage, std::vector<VkPushConstantRange>> m_push_constant_ranges;
+        JSON m_json;
+        std::vector<VkPushConstantRange> m_push_constant_ranges;
         std::map<VertexShaderVariableType, std::string> m_shader_variable_names;
 
         static const uint32_t GetTypeSize(const std::string& type_name) {
